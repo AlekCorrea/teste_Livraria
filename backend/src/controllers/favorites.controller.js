@@ -2,11 +2,21 @@
 const FavoritesRepository = require('../repositories/favorites.repository');
 const repo = new FavoritesRepository();
 
+function getUsuarioId(req) {
+  // aqui você centraliza a forma de pegar o usuário logado
+  return req.user?.id || req.session?.user?.id || req.session?.userId;
+}
+
 module.exports = {
   // GET /api/favorites
   async listarMeus(req, res) {
     try {
-      const usuarioId = req.user?.id || req.session?.user?.id || 1;
+      const usuarioId = getUsuarioId(req);
+
+      if (!usuarioId) {
+        return res.status(401).json({ mensagem: 'Usuário não autenticado' });
+      }
+
       console.log('Buscando favoritos do usuário:', usuarioId);
       const livros = await repo.listFavoritesByUser(usuarioId);
       return res.json(livros);
@@ -19,7 +29,12 @@ module.exports = {
   // POST /api/favorites/:livroId
   async adicionar(req, res) {
     try {
-      const usuarioId = req.user?.id || req.session?.user?.id || 1;
+      const usuarioId = getUsuarioId(req);
+
+      if (!usuarioId) {
+        return res.status(401).json({ mensagem: 'Usuário não autenticado' });
+      }
+
       const livroId = parseInt(req.params.livroId || req.params.id, 10);
 
       if (isNaN(livroId)) {
@@ -43,7 +58,12 @@ module.exports = {
   // DELETE /api/favorites/:livroId
   async remover(req, res) {
     try {
-      const usuarioId = req.user?.id || req.session?.user?.id || 1;
+      const usuarioId = getUsuarioId(req);
+
+      if (!usuarioId) {
+        return res.status(401).json({ mensagem: 'Usuário não autenticado' });
+      }
+
       const livroId = parseInt(req.params.livroId || req.params.id, 10);
 
       if (isNaN(livroId)) {

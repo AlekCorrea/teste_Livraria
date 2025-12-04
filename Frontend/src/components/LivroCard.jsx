@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';   // 👈 IMPORTANTE
 import './LivroCard.css';
 
 const LivroCard = ({
@@ -11,6 +12,7 @@ const LivroCard = ({
 }) => {
   const [favorito, setFavorito] = useState(favoritoInicial);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();                // 👈 HOOK DO ROUTER
 
   useEffect(() => {
     setFavorito(favoritoInicial);
@@ -36,7 +38,8 @@ const LivroCard = ({
           })())
     : null;
 
-  const alternarFavorito = async () => {
+  const alternarFavorito = async (e) => {
+    e.stopPropagation(); // 👈 NÃO DEIXA CLICAR NO CARD
     try {
       setLoading(true);
 
@@ -64,8 +67,22 @@ const LivroCard = ({
     }
   };
 
+  const handleDelete = (e) => {
+    e.stopPropagation(); // 👈 NÃO NAVEGA AO CLICAR NO LIXO
+    onDelete && onDelete(livro.id);
+  };
+
+  const handleEdit = (e) => {
+    e.stopPropagation(); // 👈 NÃO NAVEGA AO CLICAR NO EDITAR
+    onEdit && onEdit(livro);
+  };
+
+  const irParaDetalhes = () => {
+    navigate(`/livros/${livro.id}`); // 👈 AQUI VAI PRA PÁGINA DE DETALHE
+  };
+
   return (
-    <div className="livro-card">
+    <div className="livro-card" onClick={irParaDetalhes}>
       {capaUrl && (
         <div className="livro-card-capa">
           <img src={capaUrl} alt={`Capa de ${livro.titulo}`} />
@@ -89,10 +106,9 @@ const LivroCard = ({
         </button>
 
         <div className="card-actions">
-
           {/* 🗑️ LIXEIRA PRIMEIRO */}
           <button
-            onClick={() => onDelete && onDelete(livro.id)}
+            onClick={handleDelete}
             className="btn btn-danger btn-trash"
             title="Remover livro"
           >
@@ -101,12 +117,11 @@ const LivroCard = ({
 
           {/* ✏️ EDITAR DEPOIS */}
           <button
-            onClick={() => onEdit && onEdit(livro)}
+            onClick={handleEdit}
             className="btn btn-primary"
           >
             ✏️ Editar
           </button>
-
         </div>
       </div>
     </div>

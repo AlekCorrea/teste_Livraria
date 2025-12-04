@@ -9,6 +9,7 @@ import Register from './pages/Register'
 import Home from './pages/Home'
 import Livros from './pages/Livros'
 import Favoritos from './pages/Favorites'
+import DetalheLivro from './pages/DetalheLivro' // 👈 ADICIONADO
 import './App.css'
 
 function App() {
@@ -21,10 +22,46 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
-              <Route path="/livros" element={<PrivateRoute><Livros /></PrivateRoute>} />
+
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute>
+                    <Home />
+                  </PrivateRoute>
+                }
+              />
+
+              <Route
+                path="/livros"
+                element={
+                  <PrivateRoute>
+                    <Livros />
+                  </PrivateRoute>
+                }
+              />
+
+              {/* 👇 NOVA ROTA: DETALHES DO LIVRO */}
+              <Route
+                path="/livros/:id"
+                element={
+                  <PrivateRoute>
+                    <DetalheLivro />
+                  </PrivateRoute>
+                }
+              />
+
+              <Route
+                path="/favoritos"
+                element={
+                  <PrivateRoute>
+                    <Favoritos />
+                  </PrivateRoute>
+                }
+              />
+
+              {/* 👇 CORINGA SEMPRE POR ÚLTIMO */}
               <Route path="*" element={<Navigate to="/" replace />} />
-              <Route path="/favoritos" element={<Favoritos />} />
             </Routes>
           </main>
         </div>
