@@ -1,0 +1,181 @@
+/* frontend/src/index.css */
+
+/* Tema claro (padrão) */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #111827;
+  --card-bg: #ffffff;
+  --navbar-bg: #ffffff;
+  --button-bg: #2563eb;
+  --button-text: #ffffff;
+
+  /* Botões por tipo */
+  --btn-primary-bg: #007bff;
+  --btn-primary-bg-hover: #0056b3;
+
+  --btn-secondary-bg: #6c757d;
+  --btn-secondary-bg-hover: #5a6268;
+
+  --btn-success-bg: #28a745;
+  --btn-success-bg-hover: #218838;
+
+  --btn-danger-bg: #dc3545;
+  --btn-danger-bg-hover: #c82333;
+
+  /* Inputs e bordas */
+  --input-border: #dddddd;
+
+  /* Alerts */
+  --alert-error-bg: #f8d7da;
+  --alert-error-text: #721c24;
+
+  --alert-success-bg: #d4edda;
+  --alert-success-text: #155724;
+}
+
+/* Tema escuro */
+body.dark-theme {
+  --bg-color: #050816;
+  --text-color: #f9fafb;
+  --card-bg: #111827;
+  --navbar-bg: #020617;
+  --button-bg: #3b82f6;
+  --button-text: #f9fafb;
+
+  --btn-primary-bg: #3b82f6;
+  --btn-primary-bg-hover: #2563eb;
+
+  --btn-secondary-bg: #4b5563;
+  --btn-secondary-bg-hover: #374151;
+
+  --btn-success-bg: #16a34a;
+  --btn-success-bg-hover: #15803d;
+
+  --btn-danger-bg: #ef4444;
+  --btn-danger-bg-hover: #dc2626;
+
+  --input-border: #4b5563;
+
+  --alert-error-bg: #451a1f;
+  --alert-error-text: #fecaca;
+
+  --alert-success-bg: #064e3b;
+  --alert-success-text: #bbf7d0;
+}
+
+/* Estilo base do body */
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI","Roboto", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container padrão da aplicação */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Botões genéricos */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Botões por tipo */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--button-text);
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-bg-hover);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--button-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-bg-hover);
+}
+
+.btn-success {
+  background-color: var(--btn-success-bg);
+  color: var(--button-text);
+}
+
+.btn-success:hover {
+  background-color: var(--btn-success-bg-hover);
+}
+
+.btn-danger {
+  background-color: var(--btn-danger-bg);
+  color: var(--button-text);
+}
+
+.btn-danger:hover {
+  background-color: var(--btn-danger-bg-hover);
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Alerts */
+.alert {
+  padding: 12px 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Erro */
+.alert-error {
+  background-color: var(--alert-error-bg);
+  color: var(--alert-error-text);
+}
+
+/* Sucesso */
+.alert-success {
+  background-color: var(--alert-success-bg);
+  color: var(--alert-success-text);
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-color);
+}

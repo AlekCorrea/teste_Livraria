@@ -1,0 +1,89 @@
+/* frontend/src/pages/Login.css */
+
+/* Container da página de autenticação */
+.auth-container {
+  min-height: calc(100vh - 70px); /* desconta o header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 40px 20px;
+}
+
+/* Card de login */
+.auth-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Garante que no claro o card fique branco, se quiser */
+body:not(.dark-theme) .auth-card {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+/* Garante que no ESCURO o card fique escuro MESMO que outro CSS diga white */
+body.dark-theme .auth-card {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+/* Título */
+.auth-card h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: inherit;
+}
+
+/* Inputs e labels dentro do card */
+.auth-card .input-group {
+  text-align: left;
+}
+
+.auth-card .input-group label {
+  color: inherit;
+}
+
+/* claro */
+body:not(.dark-theme) .auth-card .input-group input {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #ddd;
+}
+
+/* escuro */
+body.dark-theme .auth-card .input-group input {
+  background-color: #020617;
+  color: #f9fafb;
+  border: 1px solid #4b5563;
+}
+
+/* Botão ocupar largura toda */
+.btn-block {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Texto de link abaixo do formulário */
+.auth-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: inherit;
+}
+
+.auth-link a {
+  color: var(--btn-primary-bg);
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}

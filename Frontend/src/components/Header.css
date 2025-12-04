@@ -1,0 +1,71 @@
+/* frontend/src/components/Header.css */
+
+.header {
+  background-color: var(--navbar-bg);
+  color: var(--text-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.logo h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info span {
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+/* Botão de tema */
+.theme-toggle-button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.theme-toggle-button:hover {
+  opacity: 0.9;
+}

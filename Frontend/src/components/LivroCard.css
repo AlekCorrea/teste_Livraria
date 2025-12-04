@@ -1,0 +1,146 @@
+/* frontend/src/components/LivroCard.css */
+
+/* CARD */
+.livro-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  position: relative;     /* necessário p/ estrela e ações absolutas */
+}
+
+.livro-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.22);
+}
+
+/* TÍTULO / TEXTOS */
+.livro-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.livro-card p {
+  margin: 8px 0;
+  color: var(--text-color);
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+/* CAPA */
+.livro-card-capa {
+  width: 110px;
+  min-width: 110px;
+  height: 150px;
+  background: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.livro-card-capa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ⭐ BOTÃO DE FAVORITO (estrela flutuante no canto direito) */
+.favorito-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-size: 22px;       /* estrela menor */
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+
+  color: #ffca28;   /* amarelo suave */
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.favorito-btn:hover {
+  transform: scale(1.15);
+  color: #ffb300;
+}
+
+.favorito-btn:disabled {
+  opacity: 0.5;
+  transform: none;
+}
+
+.favorito-btn.favorito-ativo {
+  color: #ff9800;
+}
+
+/* 🔻 AÇÕES (editar e remover) NO CANTO INFERIOR DIREITO */
+.card-actions {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.card-actions .btn {
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+/* 🗑️ BOTÃO DE LIXEIRA — minimalista e menor */
+.btn-trash {
+  background: #e53935;
+  color: #fff;
+  border: none;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  font-size: 18px;
+
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+/* garante que a lixeirinha não estique com o flex dos outros botões */
+.card-actions .btn.btn-trash {
+  flex: 0;
+}
+
+.btn-trash:hover {
+  background: #d32f2f;
+  transform: scale(1.1);
+}
+
+.btn-trash:active {
+  transform: scale(0.95);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+  .livro-card {
+    flex-direction: column;
+  }
+
+  .livro-card-capa {
+    width: 100%;
+    height: 200px;
+  }
+}

@@ -1,0 +1,90 @@
+/* frontend/src/components/LivroForm.css */
+
+/* Fundo escuro por cima do site */
+.livro-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Caixa do formulário */
+.livro-form-container {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.livro-form-container h2 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Inputs */
+.input-group,
+.field {
+  margin-bottom: 15px;
+}
+
+.input-group label,
+.field label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.input-group input,
+.field input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Ajusta borda no dark mode para visibilidade */
+body.dark-theme .input-group input,
+body.dark-theme .field input {
+  border: 1px solid #666;
+}
+
+/* Rodapé de botões */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions .btn {
+  flex: 1;
+  font-size: 14px;
+  padding: 10px 12px;
+}
+
+.preview-capa {
+  margin: 10px 0;
+}
+
+.preview-capa img {
+  width: 150px;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 5px;
+}
